@@ -2288,9 +2288,10 @@ fabric.CommonMethods = {
     var element = event.target,
         scroll = fabric.util.getScrollLeftTop(element),
         _evt = getTouchInfo(event);
+
     return {
-      x: _evt.clientX + scroll.left,
-      y: _evt.clientY + scroll.top
+      x: fabric.util.toFixed(_evt.clientX, window.NFD || 2) + scroll.left,
+      y: fabric.util.toFixed(_evt.clientY, window.NFD || 2) + scroll.top
     };
   };
 })();
